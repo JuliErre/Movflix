@@ -1,16 +1,13 @@
 import React from 'react'
 
-function MovieCard({movie}) {
-    const baseUrlImages =  'https://image.tmdb.org/t/p/w500'
+function MovieCard({movie, isLargeImage},) {
+    const baseUrlImages =  'https://image.tmdb.org/t/p/original'
+    
   return (
-    <div >
-        <img src={baseUrlImages + movie.poster_path} alt="" />
-        <h1 className='text-red-700 text-3xl'>{movie.title}</h1>
-        
-      
-        
+    <>
+        <img className='max-w-sm rounded-md cursor-pointer  hover:scale-105' src={baseUrlImages + (isLargeImage ? movie.poster_path : movie.backdrop_path) } alt="" />        
 
-    </div>
+    </>
   )
 }
 
