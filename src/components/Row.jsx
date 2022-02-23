@@ -19,7 +19,7 @@ function Api({title,category, isLargeImage}) {
   return (
     <div className='flex flex-col  my-5 max-w-full' >
       <h1 className='font-sans text-white text-4xl  font-semibold'>{title}</h1>
-      <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide p-5'> 
+      <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide p-5 max-w-full '> 
         {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage}/> )
         }
         </div>
