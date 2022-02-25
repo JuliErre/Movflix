@@ -15,6 +15,7 @@ function Api({title,category, isLargeImage}) {
             .then(res => setMovies(res.data.results))
             .catch(err =>console.log(err))
     },[])
+    
 
   return (
     <div className='flex flex-col  my-5 max-w-full' >
