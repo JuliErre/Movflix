@@ -5,15 +5,15 @@ export const DataContext = createContext([]);
 
 const DataContextProvider = ({children}) => {
     const [visible, setVisible] = useState()
-    const [onDetail, setOnDetail] = useState(false)
+    const [detail, setDetail] = useState(false)
 
   return (
   <DataContext.Provider
   value = {{
     visible,
     setVisible,
-    onDetail,
-    setOnDetail
+    detail,
+    setDetail,
     }}    
   >
       {children}

@@ -5,14 +5,11 @@ import { DataContext } from '../context/DataContext'
 export const useOutsideAlerter = (initialValue) => {
     const ref = useRef(null)
     const [visible, setVisible] = useState(initialValue)
-    const{onDetail,setOnDetail} = useContext(DataContext)
+    
 
     const handleClickOutside = (event) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-            setVisible(false)
-       
-            //setOnDetail(false)
-        }
+        if (ref.current && !ref.current.contains(event.target)) setVisible(false)
+        
 
     }
 
