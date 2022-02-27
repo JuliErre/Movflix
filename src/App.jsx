@@ -2,7 +2,7 @@ import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import HomeScreen from './components/HomeScreen'
-import DataContextProvider from './context/DataContext'
+import MovieListContextProvider from './context/MovieListContext'
 
 
 
@@ -11,9 +11,9 @@ function App() {
 
   return (
     <div className='bg-neutral-900'  >
-      <DataContextProvider> 
+      <MovieListContextProvider> 
      <HomeScreen/>
-     </DataContextProvider>
+     </MovieListContextProvider>
     </div>
   )
 }

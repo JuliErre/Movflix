@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useContext } from 'react'
-import { DataContext } from '../context/DataContext'
+import { MovieListContext } from '../context/MovieListContext'
 
 
 export const useOutsideAlerter = (initialValue) => {

@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Row from './Row'
 import ApiUrls from './../ApiUrls'
 import HeadPoster from './HeadPoster'
 import Navbar from './Navbar'
+import { MovieListContext } from '../context/MovieListContext'
 
 function HomeScreen() {
+  const { movieList} = useContext(MovieListContext)
   return (
     <>
      <Navbar/>
       <HeadPoster/>
 
       <div className='flex flex-col flex-wrap pl-10 max-w-full'>
+      {movieList.length > 0 && <Row key="8" title="List"  isMovieList />}
         <Row key="1" title="Popular" category={ApiUrls.popularsMovies} isLargeImage />
         <Row key="2" title="Comedy" category={ApiUrls.comedyMovies} />
         <Row key="3" title="Romance" category={ApiUrls.romanceMovies} />

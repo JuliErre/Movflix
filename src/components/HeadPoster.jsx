@@ -13,7 +13,7 @@ function HeadPoster() {
             .then(res => setMovie(res.data.results[(Math.floor(Math.random() * res.data.results.length - 1))]))
             .catch(error => console.log(error))
     }, [])
-    console.log(movie)
+    
     return (
         <header className='relative h-screen text-white flex items-center  '
             style={{
