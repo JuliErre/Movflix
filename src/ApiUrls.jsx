@@ -11,6 +11,7 @@ const ApiUrls = {
      romanceMovies: `/discover/movie?${ApiKey}&with_genres=10749`,
      familyMovies: `/discover/movie?${ApiKey}&with_genres=10751`,
      dramaMovies: `/discover/movie?${ApiKey}&with_genres=18`,
+     searchMovie : `/search/movie?${ApiKey}&query=`,
     
 }
 

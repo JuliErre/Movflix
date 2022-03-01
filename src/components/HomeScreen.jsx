@@ -9,7 +9,7 @@ function HomeScreen() {
   const { movieList} = useContext(MovieListContext)
   return (
     <>
-     <Navbar/>
+     
       <HeadPoster/>
 
       <div className='flex flex-col flex-wrap pl-10 max-w-full'>

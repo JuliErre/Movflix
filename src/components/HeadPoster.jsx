@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import ApiUrls from '../ApiUrls'
+import Detail from './Detail'
 
 
 
@@ -14,8 +15,18 @@ function HeadPoster() {
             .catch(error => console.log(error))
     }, [])
     
+    const [onDetail, setOnDetail] = useState(false)
+
+  const handleClick = () => {
+    if (onDetail == true) setOnDetail(false)
+
+    setTimeout(() => {
+      setOnDetail(true)
+    }, 100)
+  }
+
     return (
-        <header className='relative h-screen text-white flex items-center  '
+        <div className='relative h-screen text-white flex items-center  '
             style={{
                 backgroundSize: "cover",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original${movie.backdrop_path}")`,
@@ -28,10 +39,12 @@ function HeadPoster() {
                 <h3 className='text-2xl'>{movie.overview}</h3>
                 <div className='flex gap-3 '>
                     <button className='p-5 font-semibold text-4xl rounded-lg bg-black/50 duration-300 hover:bg-slate-100 hover:text-black' > Play </button>
-                    <button className='p-5 font-semibold text-4xl rounded-lg bg-black/50 duration-300  hover:bg-slate-100 hover:text-black' >  More details</button>
+                    <button  onClick={handleClick} className='p-5 font-semibold text-4xl rounded-lg bg-black/50 duration-300  hover:bg-slate-100 hover:text-black' >  More details</button>
                 </div>
             </div>
-        </header>
+            { onDetail && <Detail movie={movie} key={movie.id} handleVisible={onDetail} />}
+            
+        </div>
     )
 }
 

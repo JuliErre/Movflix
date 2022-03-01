@@ -3,6 +3,10 @@ import logo from './logo.svg'
 import './App.css'
 import HomeScreen from './components/HomeScreen'
 import MovieListContextProvider from './context/MovieListContext'
+import SearchMoviesContextProvider from './context/SearchMoviesContext'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SearchPage from './components/SearchPage'
+import Navbar from './components/Navbar'
 
 
 
@@ -11,9 +15,21 @@ function App() {
 
   return (
     <div className='bg-neutral-900'  >
-      <MovieListContextProvider> 
-     <HomeScreen/>
-     </MovieListContextProvider>
+
+      
+        <MovieListContextProvider>
+          <BrowserRouter >
+            <header>
+              <Navbar/>
+            </header>
+          <Routes>
+            <Route exact path="/" element={ <HomeScreen />} />
+            <Route exact path="/search" element={ <SearchPage />} />
+          </Routes>
+         
+          </BrowserRouter>
+        </MovieListContextProvider>
+      
     </div>
   )
 }
