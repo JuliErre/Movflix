@@ -10,12 +10,15 @@ function Api({ title, category, isLargeImage, isMovieList }) {
 
   const [movies, setMovies] = useState([]);
   const { movieList } = useContext(MovieListContext)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   if (isMovieList == true) {
 
     useEffect(() => {
+
+      setLoading(false)
       setMovies(movieList)
+      
 
     }, [movieList])
 
@@ -28,13 +31,13 @@ function Api({ title, category, isLargeImage, isMovieList }) {
       axios.get(ApiUrls.baseUrl + category)
         .then(res => setMovies(res.data.results))
         .catch(err => console.log(err))
-        .finally(setLoading(true))
+        .finally(setLoading(false))
     }, [])
   }
 
   return (
     <>
-      {!loading ?
+      {loading ?
 
         <div>
           <img src={Loading} alt="" />
@@ -45,7 +48,7 @@ function Api({ title, category, isLargeImage, isMovieList }) {
           <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide p-5 max-w-full '>
             {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage} />)
             }
-            <img src={Loading} alt="" />
+            
           </div>
           
         </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import HomeScreen from './components/HomeScreen'
@@ -7,28 +7,30 @@ import SearchMoviesContextProvider from './context/SearchMoviesContext'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SearchPage from './components/SearchPage'
 import Navbar from './components/Navbar'
+import { MovieListContext } from './context/MovieListContext'
 
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const {searchText} = useContext(MovieListContext) 
 
   return (
-    <div className='bg-neutral-900'  >
-
-      
-        <MovieListContextProvider>
-          <BrowserRouter >
+    <div className='bg-neutral-900'  >        
+          
             <header>
               <Navbar/>
             </header>
-          <Routes>
-            <Route exact path="/" element={ <HomeScreen />} />
-            <Route exact path="/search" element={ <SearchPage />} />
-          </Routes>
+            {searchText.length > 0 ?
+            <SearchPage/>
+            :
+            <HomeScreen/>
+
+            }
          
-          </BrowserRouter>
-        </MovieListContextProvider>
+         
+         
+        
       
     </div>
   )
