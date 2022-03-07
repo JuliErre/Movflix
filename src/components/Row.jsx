@@ -13,9 +13,11 @@ function Api({ title, category, isLargeImage, isMovieList }) {
   const [loading, setLoading] = useState(false)
 
   if (isMovieList == true) {
-
+    
     useEffect(() => {
+      setLoading(true)
       setMovies(movieList)
+      
 
     }, [movieList])
 
