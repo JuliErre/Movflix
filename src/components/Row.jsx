@@ -47,6 +47,7 @@ function Api({ title, category, isLargeImage, isMovieList }) {
           <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide p-5 max-w-full '>
             {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage} />)
             }
+            <img src={Loading} alt="" />
           </div>
           
         </div>
