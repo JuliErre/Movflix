@@ -31,7 +31,6 @@ function Detail({ movie, handleVisible }) {
         }
     }, [])
 
-    console.log(handleVisible)
 
     return (
         <>

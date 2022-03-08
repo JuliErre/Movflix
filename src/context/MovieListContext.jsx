@@ -5,7 +5,6 @@ export const MovieListContext = createContext([]);
 
 const MovieListContextProvider = ({children}) => {
     const [movieList, setMovieList] = useState([])
-    const [searchMovies, setSearchMovies] = useState([])
    
 
     function addToList (movie) {
@@ -28,8 +27,6 @@ const MovieListContextProvider = ({children}) => {
     setMovieList,
     addToList,
     removeMovie,
-    searchMovies,
-    setSearchMovies,
     }}    
   >
       {children}

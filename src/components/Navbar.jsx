@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 function Navbar() {
@@ -21,7 +22,7 @@ function Navbar() {
     return (
         <nav className={ `h-24 fixed w-full top-0 p-5 z-10 duration-700 ${show && 'bg-neutral-900 '}`}>
             <div className=' flex flex-row justify-between'>
-                <img className='h-12 ml-10 fixed left-0 cursor-pointer' src="https://i.ibb.co/Cv0ShGC/Movflix-M.png" alt="" />
+               <Link to="/"> <img className='h-12 ml-10 fixed left-0 cursor-pointer' src="https://i.ibb.co/Cv0ShGC/Movflix-M.png" alt="" /></Link>
                 <img className='h-12 fixed right-4 cursor-pointer' src="https://i.ibb.co/pyRZg7d/Netflix-User.png" alt="" />
                 <SearchBar/>
             </div>

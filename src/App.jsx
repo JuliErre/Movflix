@@ -24,7 +24,7 @@ function App() {
             </header>
           <Routes>
             <Route exact path="/" element={ <HomeScreen />} />
-            <Route exact path="/search" element={ <SearchPage />} />
+            <Route exact path="/search/:name" element={ <SearchPage />} />
           </Routes>
          
           </BrowserRouter>
