@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import axios from 'axios'
 import MovieCard from './MovieCard';
 import ApiUrls from '../ApiUrls';
 import { MovieListContext } from '../context/MovieListContext';
 import Loading from '../Loading.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 
 function Api({ title, category, isLargeImage, isMovieList }) {
@@ -12,9 +14,10 @@ function Api({ title, category, isLargeImage, isMovieList }) {
   const { movieList } = useContext(MovieListContext)
   const [loading, setLoading] = useState(true)
 
-
   const CancelToken = axios.CancelToken;
   const source = CancelToken.source();
+
+  const carousel = useRef(null)
 
   if (isMovieList == true) {
 
@@ -26,8 +29,6 @@ function Api({ title, category, isLargeImage, isMovieList }) {
     }, [movieList])
 
   }
-
-
 
   else {
     useEffect(() => {
@@ -55,6 +56,13 @@ function Api({ title, category, isLargeImage, isMovieList }) {
     }, [])
   }
 
+  const rightArrow = () => {
+    carousel.current.scrollLeft += carousel.current.offsetWidth;
+  }
+
+  const leftArrow = () => {
+    carousel.current.scrollLeft -= carousel.current.offsetWidth;
+  }
 
 
   return (
@@ -65,13 +73,18 @@ function Api({ title, category, isLargeImage, isMovieList }) {
           <img src={Loading} alt="" />
         </div>
         :
-        <div className='flex flex-col  my-5 max-w-full' >
-          <h1 className='ml-5 font-sans text-white text-4xl font-semibold'>{title}</h1>
-          <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide p-5 max-w-full '>
-            {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage} />)
+        <div className='flex flex-col  my-5 max-w-full relative scroll-smooth' >
+          <div className='absolute top-1/3 mt-4  right-0 h-32 w-12  text-white z-10 bg-black/50 flex justify-center items-center hover:bg-black/80 duration-500'>
+            <button onClick={rightArrow}><FontAwesomeIcon icon={faAngleRight} className='text-4xl' /></button>
+          </div>
+          <h1 className='font-sans text-white text-4xl font-semibold my-2'>{title}</h1>
+          <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide py-5 max-w-full scroll-smooth w-full' ref={carousel}>
+            {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage}  />)
             }
           </div>
-
+          <div className='absolute top-1/3 mt-4 left-0 h-32 w-12  text-white z-10 bg-black/50 flex justify-center items-center hover:bg-black/80 duration-500'>
+            <button onClick={leftArrow}><FontAwesomeIcon icon={faAngleLeft} className='text-4xl' /></button>
+          </div>
         </div>
       }
     </>

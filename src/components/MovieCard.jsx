@@ -24,7 +24,7 @@ function MovieCard({ movie, isLargeImage },) {
     <>
       {movie.backdrop_path &&
         <div className='relative group'>
-          <div className='hover:scale-105 duration-500'>
+          <div className='hover:scale-105 duration-500 '>
             <img onClick={handleClick} className='max-w-sm rounded-md cursor-pointer  ' src={baseUrlImages + (isLargeImage ? movie.poster_path : movie.backdrop_path)} alt="" />
             <div className='hidden group-hover:flex justify-center items-center left-4 top-4 text-2xl absolute rounded-full w-14 h-14 bg-black/50 border-2 border-white/40 hover:border-white duration-300 group ' >
               {movieList.find(m => m.id == movie.id) ?
