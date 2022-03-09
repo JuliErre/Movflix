@@ -18,8 +18,6 @@ function MovieCard({ movie, isLargeImage },) {
     }, 100)
   }
 
-
-
   return (
     <>
       {movie.backdrop_path &&

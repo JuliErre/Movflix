@@ -38,8 +38,6 @@ function Detail({ movie, handleVisible }) {
                 <div key={movie.id} className={`fixed z-50 duration-500  w-full h-full bg-black/50 top-0 left-0 flex flex-col items-center justify-center  `} >
                     <div ref={ref} className='flex flex-col items-center justify-center bg-neutral-800 rounded-xl overflow-hidden pb-20 shadow-xl shadow-black' >
                         <div className='flex overflow-hidden  pointer-events-none ' >
-                            {//<iframe className='overflow-hidden rounded' width="854" height="480" src={`https://www.youtube.com/embed/${movieTrailer.key}`} ></iframe>                 
-                            }
                             <ReactPlayer width="854px" height="480px" controls={false} playing={true} loop={true} url={`https://www.youtube.com/embed/${movieTrailer.key}`} config={{ youtube: { playerVars: { disablekb: 1 } } }} />
                         </div>
                         <div className='flex flex-col  justify-center max-w-3xl gap-5 mt-5' >
