@@ -1,37 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
-import ApiUrls from "../ApiUrls";
-import { MovieListContext } from "../context/MovieListContext";
-import { SearchMoviesContext } from "../context/SearchMoviesContext";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
-  //const [searchText, setSearchText] = useState('')
-  const [movies, setMovies] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [searchInput, setSearchInput] = useState(false);
-  //const {searchMovies, setSearchMovies} = useContext(SearchMoviesContext)
-  const { searchText, setSearchText } = useContext(MovieListContext);
-  const { searchMovies, setSearchMovies } = useContext(MovieListContext);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (searchText.length > 0) {
-      axios
-        .get(ApiUrls.baseUrl + ApiUrls.searchMovie + searchText)
-        .then((res) => {
-          setSearchMovies([]);
-          setSearchMovies(res.data.results);
-        })
-        .catch((err) => console.log(err));
+      navigate(`/search/${searchText}`);
     } else {
-      setSearchMovies([]);
+      navigate(`/`);
     }
   }, [searchText]);
 
   const handleClick = () => {
     setSearchInput((prev) => !prev);
-    setSearchText("");
   };
 
   return (
@@ -51,10 +38,6 @@ function SearchBar() {
           className="rounded bg-black text-white  border-0 border-none py-1 px-3 ml-2 duration-500 transition-all"
         />
       )}
-
-      {
-        // searchInput.length > 0 &&
-      }
     </div>
   );
 }
