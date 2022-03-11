@@ -1,7 +1,7 @@
 
 # Movflix
 
-Its a movie infotmation page, inspirated on netflix, in this page you can find information about your favorite movie, search a movie, add movie to a personal list and more.
+It's a movie infotmation page, inspirated on netflix, in this page you can find information about your favorite movie, search a movie, add movie to a personal list and more.
 
 ## Page link
 
