@@ -20,10 +20,10 @@ function Navbar() {
     },[])
 
     return (
-        <nav className={ `h-24 fixed w-full top-0 p-5 z-40 duration-700 ${show && 'bg-neutral-900 '}`}>
+        <nav className={ `lg:h-24  h-20 fixed w-full top-0 p-5 z-40 duration-700 ${show && 'bg-neutral-900 '}`}>
             <div className=' flex flex-row justify-between'>
-               <Link to="/"> <img className='h-12 ml-10 fixed left-0 cursor-pointer' src="https://i.ibb.co/Cv0ShGC/Movflix-M.png" alt="" /></Link>
-                <img className='h-12 fixed right-4 cursor-pointer' src="https://i.ibb.co/pyRZg7d/Netflix-User.png" alt="" />
+               <Link to="/"> <img className='lg:h-12 h-7 lg:ml-10 ml-4 fixed left-0 cursor-pointer' src="https://i.ibb.co/Cv0ShGC/Movflix-M.png" alt="" /></Link>
+                <img className='lg:h-12 h-7 fixed right-4 cursor-pointer' src="https://i.ibb.co/pyRZg7d/Netflix-User.png" alt="" />
                 <SearchBar/>
             </div>
 

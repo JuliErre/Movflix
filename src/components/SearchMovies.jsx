@@ -43,7 +43,7 @@ function SearchMovies() {
       {loading ?
         <img src={Loading} alt="" />
         :
-        <div className=' pt-28 mx-5 w-full h-full flex flex-row flex-wrap  gap-5 items-center justify-center '>
+        <div className=' pt-28 w-full h-full flex flex-row flex-wrap  gap-2 lg:gap-5 items-center justify-center '>
           {searchMovies.length > 0 ?
             searchMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
 

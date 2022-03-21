@@ -9,8 +9,6 @@ function Detail({ movie, handleVisible }) {
     const [actors, setActors] = useState([]);
     const { visible, setVisible, ref } = useOutsideAlerter(false)
 
-
-
     useEffect(() => {
         axios.get(`${ApiUrls.baseUrl}/movie/${movie.id}/videos?api_key=771f03b9c3d4bcaf131e7e4859fdb6f0`)
             .then(res => res.data.results.length > 0 && setMovieTrailer(res.data.results.find(video => video.name.toLowerCase().includes('trailer'))))

@@ -22,7 +22,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="fixed right-20 top-7 flex items-center justify-center transition-all">
+    <div className="fixed lg:right-20 right-14 lg:top-7 flex items-center justify-center transition-all">
       <FontAwesomeIcon
         icon={faMagnifyingGlass}
         className="text-white cursor-pointer text-2xl transition-all"
