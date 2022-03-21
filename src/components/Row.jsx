@@ -48,7 +48,7 @@ function Api({ title, category, isLargeImage, isMovieList }) {
             console.log(thrown)
           }
         })
-        .finally(setLoading(false))
+        .finally(() => setLoading(false))
 
       return () => {
         isUnmount = true
@@ -74,15 +74,15 @@ function Api({ title, category, isLargeImage, isMovieList }) {
         </div>
         :
         <div className='flex flex-col  my-5 max-w-full relative scroll-smooth' >
-          <div className='absolute top-1/3 mt-4  right-0 h-32 w-12  text-white z-10 bg-black/50 flex justify-center items-center hover:bg-black/80 duration-500'>
-            <button onClick={rightArrow}><FontAwesomeIcon icon={faAngleRight} className='text-4xl' /></button>
+          <div className='absolute top-1/3 mt-4  right-0 h-32 w-12  text-white z-10 bg-black/50  justify-center items-center hover:bg-black/80 duration-500 hidden lg:flex'>
+            <button onClick={rightArrow}><FontAwesomeIcon icon={faAngleRight} className='text-4xl ' /></button>
           </div>
-          <h1 className='font-sans text-white text-4xl font-semibold my-2'>{title}</h1>
-          <div className='flex flex-row gap-4 overflow-y-hidden  overflow-x-scroll scrollbar-hide py-5 max-w-full scroll-smooth w-full' ref={carousel}>
+          <h1 className='font-sans text-white text-2xl lg:text-4xl font-semibold my-2'>{title}</h1>
+          <div className='flex flex-row lg:gap-4 gap-2 overflow-y-hidden  overflow-x-scroll scrollbar-hide lg:py-5 max-w-full scroll-smooth w-full' ref={carousel}>
             {movies.map(movie => <MovieCard key={movie.id} movie={movie} isLargeImage={isLargeImage}  />)
             }
           </div>
-          <div className='absolute top-1/3 mt-4 left-0 h-32 w-12  text-white z-10 bg-black/50 flex justify-center items-center hover:bg-black/80 duration-500'>
+          <div className='absolute top-1/3 mt-4 left-0 h-32 w-12  text-white z-10 bg-black/50 justify-center items-center hover:bg-black/80 duration-500 hidden lg:flex'>
             <button onClick={leftArrow}><FontAwesomeIcon icon={faAngleLeft} className='text-4xl' /></button>
           </div>
         </div>

@@ -65,9 +65,9 @@ function HeadPoster() {
 
 
                     }}>
-                    <div className='ml-12 mt-52  flex flex-col justify-center max-w-6xl gap-4 '>
-                        <h1 className='text-7xl text-left font-bold'>{movie.title}</h1>
-                        <h3 className='text-2xl'>{movie.overview}</h3>
+                    <div className='lg:ml-12 ml-4 lg:mt-52 mt-60  flex flex-col justify-center max-w-6xl gap-4 '>
+                        <h1 className='lg:text-7xl text-5xl text-left font-bold'>{movie.title}</h1>
+                        <h3 className='lg:text-2xl hidden lg:flex'>{movie.overview}</h3>
                         <div className='flex gap-3 '>
                             <button className='p-5 font-semibold text-4xl rounded-lg bg-black/50 duration-300 hover:bg-slate-100 hover:text-black' > Play </button>
                             <button onClick={handleClick} className='p-5 font-semibold text-4xl rounded-lg bg-black/50 duration-300  hover:bg-slate-100 hover:text-black' >  More details</button>

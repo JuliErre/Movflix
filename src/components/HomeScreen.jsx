@@ -10,7 +10,7 @@ function HomeScreen() {
     <>
       <HeadPoster />
 
-      <div className='flex flex-col flex-wrap pl-14 max-w-full'>
+      <div className='flex flex-col flex-wrap lg:pl-14 pl-4 max-w-full'>
         {movieList.length > 0 && <Row key="0" title="List" isMovieList />}
         <Row key="1" title="Popular" category={ApiUrls.popularsMovies} isLargeImage />
         <Row key="2" title="Comedy" category={ApiUrls.comedyMovies} />
